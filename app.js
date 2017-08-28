@@ -10,28 +10,28 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongodb = require('mongodb');
 var mongoose = require('mongoose');
+var morgan = require('morgan');
 mongoose.connect('mongodb://localhost/kittens');
 var db = mongoose.connection;
+var app = express();
 
-var connection = mongoose.connection;
+/* Application port */
+var port = process.env.port || 8080;
 
-    // we're connected!
+/* Set up the view engine */
+app.set('views', path.join(__dirname, './views'));
+app.set('view engine', 'pug');
 
-    var kittySchema = mongoose.Schema({name: String});
+/* Set up static path */
+app.use(express.static('public'));
 
-    var Kitty = mongoose.model('Kitty', kittySchema);
+/* Set up middleware */
+app.use(morgan('combined'));
 
-    kittySchema.methods.speak = function() {
-        var greeting = this.name
-            ? "Meow name is " + this.name
-            : "A cat is no one";
-        console.log(greeting);
-    }
+app.get('/', function(req, res) {
+    res.render('index', {name: 'Neymar'});
+});
 
-    var Kitty = mongoose.model('Kitty', kittySchema);
-    var brad = new Kitty({name: 'Brad'});
-
-    brad.save(function(err, brad) {
-        if (err) console.log(err);
-        brad.speak();
-    });
+app.listen(port, function() {
+    console.log("Running on port " + port);
+});
