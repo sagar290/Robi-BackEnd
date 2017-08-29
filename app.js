@@ -29,7 +29,7 @@ app.use(express.static('public'));
 app.use(morgan('combined'));
 
 app.get('/', function(req, res) {
-    res.render('index', {name: 'Neymar'});
+    res.render('login/index', {name: 'Neymar'});
 });
 
 app.listen(port, function() {
