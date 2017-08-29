@@ -6,17 +6,19 @@ module.exports = {
         }
         else {
             if(this.model == 'user') {
+                var bcrypt = require('bcryptjs');
                 var User = require('../models/users');
                 var newUser = new User();
                 newUser.full_name = data.full_name;
                 newUser.email = data.email;
-                newUser.password= data.password;
                 newUser.region = data.region;
-                //newUser.quizzes_completed = [];
-
-                newUser.save(function(err) {
-                    if(err) console.log(err);
+                bcrypt.hash(data.password, 10, function(err, hash) {
+                    newUser.password = hash;
+                    newUser.save(function(err) {
+                        if(err) console.log(err);
+                    });
                 });
+                //newUser.quizzes_completed = [];
             }
         }
     }
