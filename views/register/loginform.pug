@@ -1,0 +1,33 @@
+form(action='/register', method='post')
+  .form-group.has-feedback
+    input.form-control(type='text', placeholder='Full name' name='full_name')
+    span.glyphicon.glyphicon-user.form-control-feedback
+  .form-group.has-feedback
+    input.form-control(type='email', placeholder='Email' name='email')
+    span.glyphicon.glyphicon-envelope.form-control-feedback
+  .form-group.has-feedback
+    input.form-control(type='password', placeholder='Password' name='password')
+    span.glyphicon.glyphicon-lock.form-control-feedback
+  .form-group.has-feedback
+    input.form-control(type='password', placeholder='Retype password')
+    span.glyphicon.glyphicon-log-in.form-control-feedback
+  .form-group.has-feedback
+    select.form-control.select2(style='width: 100%;' placeholder='Select a region' name='region')
+      option Dhaka
+      option Chittagong
+      option Sylhet
+      option Rajshahi
+      option Barishal
+      option Khulna
+      option Noakhali
+  .row
+    .col-xs-8
+      .checkbox.icheck
+        label
+          input(type='checkbox')
+          |  I agree to the 
+          a(href='#') terms
+    // /.col
+    .col-xs-4
+      button.btn.btn-danger.btn-block.btn-flat(type='submit') Register
+    // /.col

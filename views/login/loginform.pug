@@ -1,4 +1,4 @@
-form(action='/', method='post')
+form(action='/login', method='post')
   .form-group.has-feedback
     input.form-control(type='email', placeholder='Email')
     span.glyphicon.glyphicon-envelope.form-control-feedback
@@ -13,5 +13,5 @@ form(action='/', method='post')
           |  Remember Me
     // /.col
     .col-xs-4
-      button.btn.btn-primary.btn-block.btn-flat(type='submit') Sign In
+      button.btn.btn-danger.btn-block.btn-flat(type='submit') Sign In
     // /.col

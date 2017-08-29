@@ -18,6 +18,11 @@ var app = express();
 /* Application port */
 var port = process.env.port || 8080;
 
+/* Set up routes */
+var index = require('./routes/index');
+var login = require('./routes/login');
+var register = require('./routes/register');
+
 /* Set up the view engine */
 app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'pug');
@@ -26,11 +31,20 @@ app.set('view engine', 'pug');
 app.use(express.static('public'));
 
 /* Set up middleware */
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(morgan('combined'));
 
-app.get('/', function(req, res) {
-    res.render('login/index', {name: 'Neymar'});
-});
+/* Use Routes */
+app.use('/', index);
+app.use('/login', login);
+app.use('/register', register);
+
+
+app.get('/register', function(req, res) {
+    res.render('register/index');
+})
 
 app.listen(port, function() {
     console.log("Running on port " + port);
