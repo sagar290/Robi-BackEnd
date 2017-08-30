@@ -22,6 +22,7 @@ var port = process.env.port || 8080;
 var index = require('./routes/index');
 var login = require('./routes/login');
 var register = require('./routes/register');
+var dashboard = require('./routes/dashboard');
 
 /* Set up the view engine */
 app.set('views', path.join(__dirname, './views'));
@@ -40,11 +41,12 @@ app.use(morgan('combined'));
 app.use('/', index);
 app.use('/login', login);
 app.use('/register', register);
+app.use('/dashboard', dashboard);
 
 
 app.get('/register', function(req, res) {
     res.render('register/index');
-})
+});
 
 app.listen(port, function() {
     console.log("Running on port " + port);
