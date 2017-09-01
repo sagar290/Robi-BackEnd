@@ -3,6 +3,8 @@ block content
     .login-box
         include logo
         .login-box-body
+            if (message && message != '')
+                .alert.alert-danger #{message}
             include loginform
             // /.social-auth-links
             a(href='#') I forgot my password

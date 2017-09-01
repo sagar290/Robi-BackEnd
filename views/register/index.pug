@@ -3,5 +3,7 @@ block content
     .login-box
         include ../login/logo
         .login-box-body
+            if (message && message != '')
+                .alert.alert-danger #{message}
             include loginform
             

@@ -1,9 +1,9 @@
 form(action='/login', method='post')
   .form-group.has-feedback
-    input.form-control(type='email', placeholder='Email')
+    input.form-control(required type='email', name='email' placeholder='Email')
     span.glyphicon.glyphicon-envelope.form-control-feedback
   .form-group.has-feedback
-    input.form-control(type='password', placeholder='Password')
+    input.form-control(required type='password', name='password' placeholder='Password')
     span.glyphicon.glyphicon-lock.form-control-feedback
   .row
     .col-xs-8

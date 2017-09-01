@@ -1,16 +1,20 @@
-form(action='/register', method='post')
+form(action='/register', method='post' data-toggle='validator')
   .form-group.has-feedback
-    input.form-control(type='text', placeholder='Full name' name='full_name')
+    input.form-control(required type='text', placeholder='Full name' name='full_name')
     span.glyphicon.glyphicon-user.form-control-feedback
+    .help-block.with-errors
   .form-group.has-feedback
-    input.form-control(type='email', placeholder='Email' name='email')
+    input.form-control(required type='email', placeholder='Email' name='email')
     span.glyphicon.glyphicon-envelope.form-control-feedback
+    .help-block.with-errors
   .form-group.has-feedback
-    input.form-control(type='password', placeholder='Password' name='password')
+    input.form-control(data-minlength=6 required id='inputPassword' type='password', placeholder='Password' name='password')
     span.glyphicon.glyphicon-lock.form-control-feedback
+    .help-block.with-errors
   .form-group.has-feedback
-    input.form-control(type='password', placeholder='Retype password')
+    input.form-control(type="password" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Retype Password" required)
     span.glyphicon.glyphicon-log-in.form-control-feedback
+    .help-block.with-errors
   .form-group.has-feedback
     select.form-control.select2(style='width: 100%;' placeholder='Select a region' name='region')
       option Dhaka
