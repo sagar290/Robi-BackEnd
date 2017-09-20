@@ -4,7 +4,7 @@ section.sidebar
     .pull-left.image
       img.img-circle(src='dist/img/user2-160x160.jpg', alt='User Image')
     .pull-left.info
-      p=username
+      p=user.full_name
       a(href='#')
         i.fa.fa-circle.text-success
         |  Online
@@ -18,22 +18,30 @@ section.sidebar
   // /.search form
   // sidebar menu: : style can be found in sidebar.less
   ul.sidebar-menu(data-widget='tree')
-    li.header MAIN NAVIGATION
-    li.active.treeview
-      a(href='#')
+    li.header
+    li
+      a(href='/dashboard')
         i.fa.fa-dashboard
         span Dashboard
+    li.treeview
+      a(href='#')
+        i.fa.fa-upload
+        span Content Management
         span.pull-right-container
           i.fa.fa-angle-left.pull-right
       ul.treeview-menu
-        li.active
-          a(href='index.html')
-            i.fa.fa-circle-o
-            |  Dashboard v1
         li
-          a(href='index2.html')
-            i.fa.fa-circle-o
-            |  Dashboard v2
+          a(href='/content/courses')
+            i.fa-fa-circle-o
+            | Courses
+        li
+          a(href='/content/lessons')
+            i.fa-fa-circle-o
+            | Lessons
+    li
+      a(href='#')
+        i.fa.fa-pie-chart
+        span Charts
     li.treeview
       a(href='#')
         i.fa.fa-files-o

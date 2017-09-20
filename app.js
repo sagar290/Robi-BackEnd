@@ -24,6 +24,7 @@ var index = require('./routes/index');
 var login = require('./routes/login');
 var register = require('./routes/register');
 var dashboard = require('./routes/dashboard');
+var cms       = require('./routes/content-management');
 
 require('./config/passport')(passport);
 
@@ -32,7 +33,7 @@ app.set('views', path.join(__dirname, './views'));
 app.set('view engine', 'pug');
 
 /* Set up static path */
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 /* Set up middleware */
 app.use(bodyParser.json());
@@ -54,6 +55,7 @@ app.use('/', index);
 app.use('/login', login);
 app.use('/register', register);
 app.use('/dashboard', dashboard);
+app.use('/content', cms);
 
 
 

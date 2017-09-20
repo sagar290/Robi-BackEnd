@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var quizSchema = new Schema({
-    parent_lesson: Schema.ObjectId,
     questions: [
         {
             question: String,

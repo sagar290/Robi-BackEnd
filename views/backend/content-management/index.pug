@@ -1,0 +1,10 @@
+extends ../layout
+block content
+    .content-wrapper
+        include content-header
+        include content
+block scripts
+    script(src='/plugins/upload-image-preview/jquery.upload_preview.min.js')
+    script(src='/plugins/bootstrap-validator/dist/validator.min.js')
+    script(src='/js/pages/content.js')
+    

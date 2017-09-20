@@ -1,0 +1,14 @@
+// Content Header (Page header)
+section.content-header
+  h1
+    | Content Management
+    small #{user.region}
+  if (message && message != '')
+    .alert.alert-success #{message}
+  ol.breadcrumb
+    li
+      a(href='#')
+        i.fa.fa-upload
+        |  Home
+    li Content Management
+    li.active Lessons

@@ -1,0 +1,57 @@
+- var tally = 1;
+- var sup = 'nd';
+
+mixin newQuestion(question)
+    .question
+        .form-group
+            - if(tally == 1) sup = 'st'
+            - else if(tally == 3) sup = 'rd'
+            - else if(tally == 2) sup ='nd'
+            - else sup='th'
+            label(for!=attributes.id) Question #{tally}
+            input.form-control(required name=question, id!=attributes.id, type='text',
+            placeholder!='Enter the ' + tally + sup + ' Question')
+            - tally = tally + 1;
+        each val in [1,2,3,4]
+            - var name = 'option1'+val;
+            .form-group
+                input.form-control(required name=name, id=name, type='text',
+                placeholder='Enter Option #'+val)
+        .form-group
+            input.form-control(required, name='answer1', id='answer1', type='text',
+            placeholder='Enter the answer (a/b/c/d)')
+
+mixin formGroup(label)
+    .form-group
+        label(for!=attributes.id)=label
+        input.form-control(required name!=attributes.name, id!=attributes.id, type!=attributes.type, placeholder!=attributes.placeholder) 
+        .help-block.with-errors  
+
+section.content
+    .row
+        .col-lg-12.col-xs-12
+            .box.box-danger
+                .box-header.with-border
+                    h3.box-title New Lesson
+                form(role='form' action='/content/lesson' method='post')
+                    .box-body
+                        .form-group.has-feedback
+                            label Select A Course
+                            select.form-control.select2(style='width: 100%', name='course')
+                                each course in courses
+                                    option(id=course.id)= course.course_name
+                        +formGroup('Lesson Name')(name='lesson_name', id='lessonName', type='text', placeholder='Enter Lesson Name')
+                        .form-group
+                            label(for='videoUrl') YouTube Video Link 
+                            input.form-control(required id='youtubeLink' name='video'   pattern='/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/', type='url', placeholder='Enter the Youtube link to the video')
+                            .help-block.with-error
+                    .box-header.with-border
+                        h3.box-title Lesson Quiz
+                    .box-body
+                        .questions
+                            +newQuestion('question'+tally)
+                        .addAnother(style='text-align:center')
+                            button.btn.btn-success(id='addNewQuestion')
+                                i.fa.fa-plus-circle 
+                    .box-footer
+                        button.pull-right.btn.btn-danger(type='submit') Submit
