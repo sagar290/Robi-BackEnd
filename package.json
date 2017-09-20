@@ -3,7 +3,17 @@
   "version": "1.0.0",
   "description": "Back End of Training App",
   "main": "app.js",
+  "engine": {
+      "node": "6.11.0",
+      "npm": "3.10.10"
+  },
+  "keywords": [
+      "robi",
+      "heroku",
+      "10minuteschool"
+  ],
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rashed Doha",
