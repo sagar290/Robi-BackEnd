@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Back End of Training App",
   "main": "app.js",
-  "engine": {
+  "engines": {
       "node": "6.11.0",
       "npm": "3.10.10"
   },
