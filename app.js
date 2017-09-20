@@ -17,7 +17,7 @@ var db = mongoose.connection;
 var app = express();
 
 /* Application port */
-var port = process.env.port || 8080;
+var port = process.env.PORT || 3030;
 
 /* Set up routes */
 var index = require('./routes/index');
