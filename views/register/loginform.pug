@@ -15,15 +15,15 @@ form(action='/register', method='post' data-toggle='validator')
     input.form-control(type="password" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Retype Password" required)
     span.glyphicon.glyphicon-log-in.form-control-feedback
     .help-block.with-errors
+    .form-group.has-feedback
+      select.form-control.select2(style='width: 100%;' placeholder='Select an access level' name='access')
+        option Superuser
+        option Analytics
   .form-group.has-feedback
     select.form-control.select2(style='width: 100%;' placeholder='Select a region' name='region')
-      option Dhaka
-      option Chittagong
-      option Sylhet
-      option Rajshahi
-      option Barishal
-      option Khulna
-      option Noakhali
+      option All
+      each region in regions
+          option=region.region_name
   .row
     .col-xs-8
       .checkbox.icheck

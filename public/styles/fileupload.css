@@ -1,0 +1,31 @@
+form{
+  height: 50px;
+  border: 1px dashed #ccc;
+}
+
+form p{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 5px;
+  font-family: Arial;
+}
+
+.row{
+    margin-top: 20%;
+}
+
+.login-box-body {
+    min-height: 200px;
+}
+
+form input{
+
+  margin: 0;
+  padding: 0;
+  margin-top:-10px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+}

@@ -1,0 +1,44 @@
+.box
+  .box-header.with-border
+    h3.box-title User Analytics
+    .box-tools.pull-right
+      button.btn.btn-box-tool(type='button', data-widget='collapse')
+        i.fa.fa-minus
+      button.btn.btn-danger.btn-sm.pull-right(id='userDateRangePicker' type='button', data-toggle='tooltip', title='', data-original-title='Date range')
+        i.fa.fa-calendar
+  // /.box-header
+  .box-body
+    .row
+      .col-md-12
+        .form-group.has-feedback
+          label(for='user') Select A User
+          select.form-control.select2(id='username' style='width: 100%;' placeholder='Select a user' name='user')
+            each user in users
+                option=user.username
+    .row
+      .col-md-12
+       h3.text-center(id='userDaterange') 
+    .row
+      .col-md-6
+        p.text-center
+          strong Course Completion
+      .col-md-6
+        p.text-center
+          strong Average Scores
+    each course in courses
+      .row
+        .col-md-6
+          .progress-group
+            span.progress-text=course.course_name
+            span.progress-number
+              b 0
+              | /100
+            .progress.sm
+              .progress-bar.progress-bar-red(id=course.id style='width: 0%') 
+        .col-md-6
+          p.text-center.quizScores(id='quiz'+course.id)
+            | 0
+        
+      // /.col
+    // /.row
+  // ./box-body

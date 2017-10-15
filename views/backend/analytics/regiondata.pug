@@ -1,0 +1,37 @@
+.box
+  .box-header.with-border
+    h3.box-title Region Analytics
+    .box-tools.pull-right
+      button.btn.btn-box-tool(type='button', data-widget='collapse')
+        i.fa.fa-minus
+      button.btn.btn-danger.btn-sm.pull-right(id='regionDateRangePicker' type='button', data-toggle='tooltip', title='', data-original-title='Date range')
+        i.fa.fa-calendar
+  // /.box-header
+  .box-body
+    if user.region == 'All'
+      .row
+        .col-md-12
+          .form-group.has-feedback
+            label(for='region') Select A Region
+            select.form-control.select2(id='courseRegion' style='width: 100%;' placeholder='Select a region' name='region')
+              each region in regions
+                  option=region.region_name
+    .row
+      .col-md-12
+       h3.text-center(id='regionDaterange')   
+    .row
+      .col-md-6
+        p.text-center
+          strong % Users Completed
+        .chart
+          // Sales Chart Canvas
+          canvas#region-usersTakenChart
+        // /.chart-responsive
+      // /.col
+      .col-md-6
+        p.text-center
+          strong Average Quiz Scores
+        canvas#region-quizScoresChart
+      // /.col
+    // /.row
+  // ./box-body

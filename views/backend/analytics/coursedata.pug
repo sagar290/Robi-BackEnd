@@ -1,0 +1,36 @@
+.box
+  .box-header.with-border
+    h3.box-title Course Analytics
+    .box-tools.pull-right
+      button.btn.btn-box-tool(type='button', data-widget='collapse')
+        i.fa.fa-minus
+      button.btn.btn-danger.btn-sm.pull-right(id='courseDateRangePicker' type='button', data-toggle='tooltip', title='', data-original-title='Date range')
+        i.fa.fa-calendar
+  // /.box-header
+  .box-body
+    .row
+      .col-md-12
+        .form-group.has-feedback
+          label(for='region') Select A Course
+          select.form-control.select2(id='courseRegion' style='width: 100%;' placeholder='Select a region' name='region')
+            each course in courses
+                option=course.course_name
+    .row
+      .col-md-12
+       h3.text-center(id='courseDaterange')   
+    .row
+      .col-md-6
+        p.text-center
+          strong Average Quiz Scores
+        .chart
+          // Sales Chart Canvas
+          canvas#course-quizScoresChart
+        // /.chart-responsive
+      // /.col
+      .col-md-6
+        p.text-center
+          strong % Users Taken
+        canvas#course-usersTakenChart
+      // /.col
+    // /.row
+  // ./box-body

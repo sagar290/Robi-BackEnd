@@ -1,0 +1,32 @@
+section.content
+  .row
+    .col-md-12
+      if user.access == 'Analytics'
+          .alert.alert-danger.alert-dismissible
+              h4
+                  i.icon.fa.fa-ban
+                  |  Alert
+              | Sorry you don't have content management privilidges
+      else
+          .box.box-info
+            .box-header
+              h3.box-title
+                | তথ্যভান্ডার এডিটর
+              // tools box
+              .pull-right.box-tools
+                button.btn.btn-info.btn-sm(type='button', data-widget='collapse', data-toggle='tooltip', title='Collapse')
+                  i.fa.fa-minus
+              // /. tools
+            // /.box-header
+            .box-body.pad
+              form(action='/infohub', method='post')
+                if user.region == 'All'
+                  .form-group.has-feedback
+                    label(for='region') Select the target region
+                    select.form-control.select2(style='width: 100%;' placeholder='Select a region' name='region')
+                      option All
+                      each region in regions
+                        option=region.region_name
+                textarea#editor1(name='editor1', rows='10', cols='80')
+                .box-footer
+                  button.pull-right.btn.btn-danger(type='button' id='infobutton') Submit

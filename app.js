@@ -23,8 +23,15 @@ var port = process.env.PORT || 3030;
 var index = require('./routes/index');
 var login = require('./routes/login');
 var register = require('./routes/register');
+var multiregister = require('./routes/multiregister');
 var dashboard = require('./routes/dashboard');
 var cms       = require('./routes/content-management');
+var infohub   = require('./routes/infohub');
+var ads       = require('./routes/ads');
+var anouncements = require('./routes/anouncements');
+var analytics    = require('./routes/analytics');
+var regionentry  = require('./routes/regionentry');
+var API          = require('./routes/api');
 
 require('./config/passport')(passport);
 
@@ -54,8 +61,15 @@ app.use(passport.session());
 app.use('/', index);
 app.use('/login', login);
 app.use('/register', register);
+app.use('/multiregister', multiregister);
 app.use('/dashboard', dashboard);
 app.use('/content', cms);
+app.use('/infohub', infohub);
+app.use('/ads', ads);
+app.use('/anouncements', anouncements);
+app.use('/analytics', analytics);
+app.use('/regionentry', regionentry);
+app.use('/api', API);
 
 
 

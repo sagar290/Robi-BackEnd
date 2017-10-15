@@ -1,0 +1,12 @@
+extends ../login/layout
+
+block styles
+    link(rel='stylesheet' href='/styles/fileupload.css')
+block content
+    .login-box
+        include ../login/logo
+        .login-box-body
+            if (message && message != '')
+                .alert.alert-danger #{message}
+            include loginform
+            

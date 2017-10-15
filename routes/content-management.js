@@ -12,7 +12,6 @@ router.use('/', function(req, res, next) {
         logofirst: '10',
         logosecondmin: 'MS',
         logosecond: 'MinuteSchool',
-        username: 'Rashed Doha',
         user: req.user
     };
 

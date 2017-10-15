@@ -7,6 +7,7 @@ var userSchema = new Schema({
     email: String,
     password: String,
     region: String,
+    access: String,
     //quizzes_completed: [{quiz: ObjectId, score: Number, data: Date}]
 });
 

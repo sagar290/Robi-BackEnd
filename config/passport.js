@@ -57,8 +57,9 @@ module.exports = function(passport) {
                 if (user) {
                     return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                 } else {
-                    inserter.model = 'user',
+                    inserter.model = 'user';
                     inserter.insert(req.body);
+                    
                     return done(null, inserter.instance);
                 }
 
